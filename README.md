@@ -74,6 +74,30 @@ Weights of active criteria must total 100% (validated at batch time).
 python test_run.py   # end-to-end mock run over the 4 sample PDFs + validation edge cases
 ```
 
+## Screenshots (deployed app)
+
+Criteria loaded from SQLite + multi-PDF upload:
+
+![Evaluation criteria and PDF upload](docs/screenshots/01-criteria-and-upload.png)
+
+Supplier metadata entry:
+
+![Supplier metadata](docs/screenshots/02-supplier-metadata.png)
+
+Leaderboard after batch evaluation:
+
+![Leaderboard](docs/screenshots/03-leaderboard.png)
+
+Detailed scorecard with per-criterion evidence and justifications:
+
+![Detailed scorecard](docs/screenshots/06-scorecard-nexaworks.png)
+
+Run details (RFP_RUN_ID, tie-break order) and run history persisted in SQLite:
+
+![Run details and history](docs/screenshots/09-scorecard-brightpath-and-history.png)
+
+More screenshots (remaining supplier scorecards) are in `docs/screenshots/`.
+
 ## Deploy (Streamlit Community Cloud)
 
 1. Push this folder to a GitHub repo.
