@@ -12,7 +12,7 @@ from tools import llm_client
 BASE_DIR = Path(__file__).parent
 DB_PATH = BASE_DIR / "rfp_evaluation.db"
 
-st.set_page_config(page_title="RFP Ranker — Agentic Supplier Evaluation", layout="wide")
+st.set_page_config(page_title="Agentic RFP Evaluation", layout="wide")
 
 # ---------- Light theme accents (white background + color coding) ----------
 st.markdown("""
@@ -62,13 +62,45 @@ with st.sidebar:
                              base_url=llm_client.OPENROUTER_BASE_URL)
     st.caption(f"Active backend: **{llm_client.backend_name()}**")
 
+# ---------- Light theme accents (white background + color coding) ----------
+st.markdown("""
+<style>
+/* Primary buttons: solid accent */
+.stButton > button[kind="primary"] {
+    background-color: #4A90D9;
+    border-color: #4A90D9;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 600;
+}
+/* Expander cards: soft blue tint */
+[data-testid="stExpander"] {
+    background-color: #F2F7FD;
+    border: 1px solid #D6E4F0;
+    border-radius: 10px;
+}
+/* Metric cards (top suppliers): soft blue tint */
+[data-testid="stMetric"] {
+    background-color: #F2F7FD;
+    border: 1px solid #D6E4F0;
+    border-radius: 10px;
+    padding: 12px;
+}
+/* Accent bar on section headers */
+h2 {
+    border-left: 6px solid #4A90D9;
+    padding-left: 12px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Ensure DB exists
 if not DB_PATH.exists():
     st.warning("Database not found — initializing with seed criteria...")
     from init_db import init_db
     init_db(DB_PATH)
 
-st.title("🏆📋 Agentic RFP Evaluation & Supplier Ranking")
+st.title("📋 Agentic RFP Evaluation & Supplier Ranking")
 st.caption("Agentic supplier evaluation: an LLM reads each proposal and scores it against "
            "your criteria, then deterministic Python computes benchmarks, PPI, tie-breaks "
            "and the final ranking.")
@@ -195,8 +227,8 @@ if result:
             f"Created: {result['created_at']}\n"
             f"LLM backend: {result['llm_backend']}")
     st.write("**Tie-breaks applied (in order):**")
-    for i, t in enumerate(ranking["tie_break_order"], start=1):
-        st.write(f"{i}. {t}")
+    for t in ranking["tie_break_order"]:
+        st.write(f"- {t}")
     if result["warnings"]:
         st.subheader("Warnings")
         for w in result["warnings"]:

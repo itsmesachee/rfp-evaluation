@@ -76,27 +76,17 @@ python test_run.py   # end-to-end mock run over the 4 sample PDFs + validation e
 
 ## Screenshots (deployed app)
 
-Criteria loaded from SQLite + multi-PDF upload:
+Expanded scorecard — Orbit Digital (per-criterion scores, benchmarks, gaps, relative %, justification and evidence quotes):
 
-![Evaluation criteria and PDF upload](docs/screenshots/01-criteria-and-upload.png)
+![Scorecard — Orbit Digital](docs/screenshots/01-scorecard-orbit.png)
 
-Supplier metadata entry:
+Expanded scorecard — BrightPath Tech:
 
-![Supplier metadata](docs/screenshots/02-supplier-metadata.png)
+![Scorecard — BrightPath Tech](docs/screenshots/02-scorecard-brightpath.png)
 
-Leaderboard after batch evaluation:
+Run summary (run ID, LLM backend, tie-break order, JSON download) and previous runs persisted in SQLite:
 
-![Leaderboard](docs/screenshots/03-leaderboard.png)
-
-Detailed scorecard with per-criterion evidence and justifications:
-
-![Detailed scorecard](docs/screenshots/06-scorecard-nexaworks.png)
-
-Run details (RFP_RUN_ID, tie-break order) and run history persisted in SQLite:
-
-![Run details and history](docs/screenshots/09-scorecard-brightpath-and-history.png)
-
-More screenshots (remaining supplier scorecards) are in `docs/screenshots/`.
+![Run summary and history](docs/screenshots/03-run-summary.png)
 
 ## Deploy (Streamlit Community Cloud)
 
