@@ -97,9 +97,9 @@ def compute_scores_and_ranking(suppliers: List[Dict], criteria: List[Dict]) -> D
         "benchmarks": benchmarks,
         "suppliers": ordered,  # ranked order
         "tie_break_order": [
-            "1) Higher Peer Performance Index (PPI)",
-            "2) Earlier submission date",
-            "3) Higher historical experience rating",
-            "4) Supplier name (A-Z)",
+            "1. Higher Peer Performance Index (PPI)",
+            "2. Earlier submission date",
+            "3. Higher historical experience rating",
+            "4. Supplier name (A-Z)",
         ],
     }

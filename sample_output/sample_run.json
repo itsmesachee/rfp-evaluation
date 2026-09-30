@@ -1,6 +1,6 @@
 {
-  "rfp_run_id": "RFP-20260930-023655-E23953",
-  "created_at": "2026-09-30T02:36:55.060206+00:00",
+  "rfp_run_id": "RFP-20260930-024238-F5DF1E",
+  "created_at": "2026-09-30T02:42:38.402421+00:00",
   "llm_backend": "mock (no API key)",
   "criteria": [
     {
@@ -40,10 +40,10 @@
     }
   ],
   "tie_break_order": [
-    "1) Higher Peer Performance Index (PPI)",
-    "2) Earlier submission date",
-    "3) Higher historical experience rating",
-    "4) Supplier name (A-Z)"
+    "1. Higher Peer Performance Index (PPI)",
+    "2. Earlier submission date",
+    "3. Higher historical experience rating",
+    "4. Supplier name (A-Z)"
   ],
   "benchmarks": {
     "1": 9.0,
