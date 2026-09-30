@@ -109,4 +109,4 @@ More screenshots (remaining supplier scorecards) are in `docs/screenshots/`.
 
 - PDFs are text-based (scanned images need OCR — out of scope, surfaced as an error).
 - Experience rating is a 1.0–5.0 historical score entered by the user.
-- Without an API key, a deterministic keyword-heuristic mock backend runs so the app is demoable offline; any JSON-capable LLM can be plugged in via the sidebar or OPENAI_API_KEY.
+- Without an API key, a deterministic keyword-heuristic mock backend runs so the app is demoable offline; any JSON-capable LLM can be plugged in via the sidebar or `OPENAI_API_KEY`.
