@@ -1,7 +1,7 @@
 {
-  "rfp_run_id": "RFP-20260930-024238-F5DF1E",
-  "created_at": "2026-09-30T02:42:38.402421+00:00",
-  "llm_backend": "mock (no API key)",
+  "rfp_run_id": "RFP-20260930-032014-473630",
+  "created_at": "2026-09-30T03:20:14.059685+00:00",
+  "llm_backend": "OpenRouter (openai/gpt-4o-mini)",
   "criteria": [
     {
       "criterion_id": 1,
@@ -47,17 +47,17 @@
   ],
   "benchmarks": {
     "1": 9.0,
-    "2": 9.0,
-    "3": 8.0,
+    "2": 10.0,
+    "3": 9.0,
     "4": 9.0,
-    "5": 9.0
+    "5": 10.0
   },
   "suppliers": [
     {
       "supplier_name": "NexaWorks",
-      "submission_date": "2026-09-12",
-      "experience_rating": 4.5,
-      "absolute_score": 88.0,
+      "submission_date": "2026-09-30",
+      "experience_rating": 3.5,
+      "absolute_score": 93.0,
       "ppi": 100.0,
       "final_rank": 1,
       "criterion_details": [
@@ -70,32 +70,32 @@
           "benchmark": 9.0,
           "gap": 0.0,
           "relative_pct": 100.0,
-          "evidence": "Proposed Solution & Technical Architecture\nArchitecture: modular monolith-to-microservices path on Azure AKS, .",
-          "justification": "Mock heuristic: 11 positive keyword hits for 'Technical Capability'. Score reflects evidence density in document."
+          "evidence": "modular monolith-to-microservices path on Azure AKS, .NET 8 services, Azure SQL, Service Bus.",
+          "justification": "The technical architecture is robust and scalable, designed for 8,000 concurrent users, indicating a strong technical capability."
         },
         {
           "criterion_id": 2,
           "name": "Implementation Plan",
+          "score": 10.0,
+          "max_score": 10,
+          "weight": 20.0,
+          "benchmark": 10.0,
+          "gap": 0.0,
+          "relative_pct": 100.0,
+          "evidence": "18-week plan with the clearest work breakdown: 5 phases, 32 milestones, resource-loaded Gantt, and 10% schedule contingency.",
+          "justification": "The implementation plan is exceptionally detailed with clear milestones and a comprehensive risk plan, demonstrating thorough planning."
+        },
+        {
+          "criterion_id": 3,
+          "name": "Commercial Value",
           "score": 9.0,
           "max_score": 10,
           "weight": 20.0,
           "benchmark": 9.0,
           "gap": 0.0,
           "relative_pct": 100.0,
-          "evidence": "We deeply understand the need for predictable delivery: our proposal emphasizes milestones, staffing clarity,\nand a support model that has earned 4.",
-          "justification": "Mock heuristic: 12 positive keyword hits for 'Implementation Plan'. Score reflects evidence density in document."
-        },
-        {
-          "criterion_id": 3,
-          "name": "Commercial Value",
-          "score": 8.0,
-          "max_score": 10,
-          "weight": 20.0,
-          "benchmark": 8.0,
-          "gap": 0.0,
-          "relative_pct": 100.0,
-          "evidence": "Commercials & Price Table\nItem\nCost (USD)\nImplementation\n$340,000\nLicenses Year 1\n$105,000\nHosting & Support Y1\n$55,000\nTotal Year 1\n$500,000\nAssumptions: detailed \u2013 8 pages of assumptions covering roles, data volumes (u",
-          "justification": "Mock heuristic: 8 positive keyword hits for 'Commercial Value'. Score reflects evidence density in document."
+          "evidence": "Pricing clarity is excellent: fixed-fee with unit rates for changes ($175/hr), no hidden uplift.",
+          "justification": "The commercial value is transparent with detailed assumptions and a clear pricing structure, though a slight deduction is due to the total cost being on the higher side."
         },
         {
           "criterion_id": 4,
@@ -106,35 +106,35 @@
           "benchmark": 9.0,
           "gap": 0.0,
           "relative_pct": 100.0,
-          "evidence": "Security, Compliance & Risk Controls\nCertifications: ISO 27001:2022 certified, SOC 2 Type II.",
-          "justification": "Mock heuristic: 15 positive keyword hits for 'Security & Compliance'. Score reflects evidence density in document."
+          "evidence": "Certifications: ISO 27001:2022 certified, SOC 2 Type II.",
+          "justification": "Strong security and compliance measures are in place, including relevant certifications and GDPR/CCPA compliance, indicating a high level of security."
         },
         {
           "criterion_id": 5,
           "name": "Support & Experience",
-          "score": 9.0,
+          "score": 10.0,
           "max_score": 10,
           "weight": 10.0,
-          "benchmark": 9.0,
+          "benchmark": 10.0,
           "gap": 0.0,
           "relative_pct": 100.0,
-          "evidence": "Support Model, Experience & References (Strongest)\nSupport: 24/7 with 99.",
-          "justification": "Mock heuristic: 11 positive keyword hits for 'Support & Experience'. Score reflects evidence density in document."
+          "evidence": "Support model that has earned 4.8/5 CSAT across 20 projects.",
+          "justification": "The support model is robust with high customer satisfaction and extensive experience in similar projects, indicating strong capability in support and experience."
         }
       ],
       "risks": [
-        "Integration dependencies noted; mitigation quality varies by supplier.",
-        "SAP integration approach lacks concrete detail."
+        "Potential delays in SAP access",
+        "Medium findings from pen test that need remediation"
       ],
-      "overall_summary": "Mock evaluation (no LLM API key configured). Scores derived from keyword evidence density; connect an LLM for nuanced judgment.",
+      "overall_summary": "NexaWorks presents a strong proposal with a well-defined implementation plan and robust technical capabilities. Their high customer satisfaction and comprehensive security measures further enhance their offering, making them a competitive candidate.",
       "warnings": []
     },
     {
       "supplier_name": "Apex Systems",
-      "submission_date": "2026-09-10",
-      "experience_rating": 4.2,
-      "absolute_score": 86.0,
-      "ppi": 97.78,
+      "submission_date": "2026-09-30",
+      "experience_rating": 3.5,
+      "absolute_score": 83.0,
+      "ppi": 89.56,
       "final_rank": 2,
       "criterion_details": [
         {
@@ -146,8 +146,8 @@
           "benchmark": 9.0,
           "gap": 0.0,
           "relative_pct": 100.0,
-          "evidence": "Executive Summary\nApex Systems proposes a cloud-native workflow automation platform built on a microservices architecture\nwith Kubernetes orchestration, event-driven messaging via Apache Kafka, and a React-based user por",
-          "justification": "Mock heuristic: 14 positive keyword hits for 'Technical Capability'. Score reflects evidence density in document."
+          "evidence": "cloud-native workflow automation platform built on a microservices architecture",
+          "justification": "The proposal demonstrates a strong technical capability with a microservices architecture and proven scalability, addressing the client's requirements effectively."
         },
         {
           "criterion_id": 2,
@@ -155,23 +155,23 @@
           "score": 8.0,
           "max_score": 10,
           "weight": 20.0,
-          "benchmark": 9.0,
-          "gap": -1.0,
-          "relative_pct": 88.89,
-          "evidence": "Phase\nDuration\nKey Milestones\nFoundation\nWks 1-6\nEKS cluster, CI/CD, auth integration\nCore Workflows\nWks 7-14\n8 priority workflows live in staging\nIntegrations\nWks 15-20\nSAP/Salesforce/Okta certified\nUAT & Hypercare\nWks ",
-          "justification": "Mock heuristic: 8 positive keyword hits for 'Implementation Plan'. Score reflects evidence density in document."
+          "benchmark": 10.0,
+          "gap": -2.0,
+          "relative_pct": 80.0,
+          "evidence": "Moderate 24-week delivery across 4 phases",
+          "justification": "The implementation plan is well-structured with clear phases and milestones, although the timeline could be considered moderate rather than aggressive."
         },
         {
           "criterion_id": 3,
           "name": "Commercial Value",
-          "score": 8.0,
+          "score": 7.0,
           "max_score": 10,
           "weight": 20.0,
-          "benchmark": 8.0,
-          "gap": 0.0,
-          "relative_pct": 100.0,
-          "evidence": "Commercials & Price Table\nItem\nCost (USD)\nImplementation (fixed fee)\n$485,000\nLicenses Year 1 (5,000 users)\n$120,000\nManaged hosting Year 1\n$60,000\nTotal Year 1\n$665,000\nAssumptions: client provides AWS accounts and SAP ",
-          "justification": "Mock heuristic: 7 positive keyword hits for 'Commercial Value'. Score reflects evidence density in document."
+          "benchmark": 9.0,
+          "gap": -2.0,
+          "relative_pct": 77.78,
+          "evidence": "Total Year 1 $665,000",
+          "justification": "While the pricing is clear and detailed, it is on the higher end, which may affect perceived commercial value despite the quality of service offered."
         },
         {
           "criterion_id": 4,
@@ -182,110 +182,111 @@
           "benchmark": 9.0,
           "gap": 0.0,
           "relative_pct": 100.0,
-          "evidence": "Security, Compliance & Risk Controls\nCertifications: ISO 27001:2022, SOC 2 Type II (report available under NDA).",
-          "justification": "Mock heuristic: 15 positive keyword hits for 'Security & Compliance'. Score reflects evidence density in document."
+          "evidence": "Certifications: ISO 27001:2022, SOC 2 Type II",
+          "justification": "The proposal includes strong security measures and compliance certifications, indicating a high level of commitment to security and privacy."
         },
         {
           "criterion_id": 5,
           "name": "Support & Experience",
-          "score": 9.0,
+          "score": 8.0,
           "max_score": 10,
           "weight": 10.0,
-          "benchmark": 9.0,
-          "gap": 0.0,
-          "relative_pct": 100.0,
-          "evidence": "Support Model, Experience & References\nSupport: 24/7 follow-the-sun, 99.",
-          "justification": "Mock heuristic: 10 positive keyword hits for 'Support & Experience'. Score reflects evidence density in document."
+          "benchmark": 10.0,
+          "gap": -2.0,
+          "relative_pct": 80.0,
+          "evidence": "12 enterprise workflow deployments (2019-2025), including 2 Fortune 500 manufacturers",
+          "justification": "The supplier has significant experience and positive references, which adds credibility to their support model and overall capability."
         }
       ],
       "risks": [
-        "Integration dependencies noted; mitigation quality varies by supplier."
+        "Integration dependency on client SAP team",
+        "Higher pricing may limit client budget"
       ],
-      "overall_summary": "Mock evaluation (no LLM API key configured). Scores derived from keyword evidence density; connect an LLM for nuanced judgment.",
+      "overall_summary": "Apex Systems presents a robust proposal with strong technical capabilities and a solid implementation plan. However, the higher pricing and integration dependencies pose potential risks that should be considered.",
       "warnings": []
     },
     {
       "supplier_name": "Orbit Digital",
-      "submission_date": "2026-09-09",
-      "experience_rating": 4.8,
-      "absolute_score": 64.0,
-      "ppi": 73.33,
+      "submission_date": "2026-09-30",
+      "experience_rating": 3.5,
+      "absolute_score": 71.0,
+      "ppi": 76.34,
       "final_rank": 3,
       "criterion_details": [
         {
           "criterion_id": 1,
           "name": "Technical Capability",
-          "score": 4.0,
+          "score": 6.0,
           "max_score": 10,
           "weight": 30.0,
           "benchmark": 9.0,
-          "gap": -5.0,
-          "relative_pct": 44.44,
-          "evidence": "Scalability: mentions autoscaling; no load-test evidence included.",
-          "justification": "Mock heuristic: 4 positive keyword hits for 'Technical Capability'. Score reflects evidence density in document."
+          "gap": -3.0,
+          "relative_pct": 66.67,
+          "evidence": "Integrations: description is vague \u2013 states 'seamless integration with SAP, Salesforce, and Okta via APIs' but provides no connector details.",
+          "justification": "While the technical approach mentions a solid platform and some integrations, the lack of detailed integration plans and evidence of scalability limits the score."
         },
         {
           "criterion_id": 2,
           "name": "Implementation Plan",
-          "score": 5.0,
+          "score": 7.0,
           "max_score": 10,
           "weight": 20.0,
-          "benchmark": 9.0,
-          "gap": -4.0,
-          "relative_pct": 55.56,
-          "evidence": "Phase\nDuration\nMilestones\nDiscover\nWks 1-4\nBlueprint sign-off\nBuild\nWks 5-14\nWorkflows iteratively released\nTest & Launch\nWks 15-20\nUAT, cutover, hypercare (30 days)\nTeam: senior-heavy \u2013 1 partner sponsor, 1 architect (1",
-          "justification": "Mock heuristic: 4 positive keyword hits for 'Implementation Plan'. Score reflects evidence density in document."
+          "benchmark": 10.0,
+          "gap": -3.0,
+          "relative_pct": 70.0,
+          "evidence": "20-week plan: Discover (4 wks), Build (10 wks), Test (4 wks), Launch (2 wks).",
+          "justification": "The implementation plan is well-structured with clear phases and milestones, but the risk mitigation strategies are somewhat generic."
         },
         {
           "criterion_id": 3,
           "name": "Commercial Value",
-          "score": 8.0,
+          "score": 7.0,
           "max_score": 10,
           "weight": 20.0,
-          "benchmark": 8.0,
-          "gap": 0.0,
-          "relative_pct": 100.0,
-          "evidence": "Commercials & Price Table\nItem\nCost (USD)\nImplementation\n$375,000\nLicenses Year 1\n$95,000\nSupport Year 1\n$50,000\nTotal Year 1\n$520,000\nAssumptions: reasonable; 90-day price validity; T&M; for out-of-scope at $190/hr.",
-          "justification": "Mock heuristic: 7 positive keyword hits for 'Commercial Value'. Score reflects evidence density in document."
+          "benchmark": 9.0,
+          "gap": -2.0,
+          "relative_pct": 77.78,
+          "evidence": "Medium pricing with flexible commercial terms.",
+          "justification": "The pricing is clear and reasonable, with a total cost outlined, but the medium pricing level suggests there could be more competitive options."
         },
         {
           "criterion_id": 4,
           "name": "Security & Compliance",
-          "score": 9.0,
+          "score": 8.0,
           "max_score": 10,
           "weight": 20.0,
           "benchmark": 9.0,
-          "gap": 0.0,
-          "relative_pct": 100.0,
-          "evidence": "Security, Compliance & Risk Controls\nCertifications: ISO 27001:2022, SOC 2 Type II.",
-          "justification": "Mock heuristic: 15 positive keyword hits for 'Security & Compliance'. Score reflects evidence density in document."
+          "gap": -1.0,
+          "relative_pct": 88.89,
+          "evidence": "Certifications: ISO 27001:2022, SOC 2 Type II. Cloud Security Alliance STAR listed.",
+          "justification": "The supplier demonstrates strong security and compliance measures, although some integration-specific security details are lacking."
         },
         {
           "criterion_id": 5,
           "name": "Support & Experience",
-          "score": 8.0,
+          "score": 9.0,
           "max_score": 10,
           "weight": 10.0,
-          "benchmark": 9.0,
+          "benchmark": 10.0,
           "gap": -1.0,
-          "relative_pct": 88.89,
-          "evidence": "Support Model, Experience & References (Strongest Experience)\nSupport: 24/7, 99.",
-          "justification": "Mock heuristic: 8 positive keyword hits for 'Support & Experience'. Score reflects evidence density in document."
+          "relative_pct": 90.0,
+          "evidence": "References: three detailed references with named contacts, project sizes, and outcome metrics.",
+          "justification": "The supplier has extensive experience and strong references, showcasing successful implementations and high user adoption rates."
         }
       ],
       "risks": [
-        "Integration dependencies noted; mitigation quality varies by supplier.",
-        "SAP integration approach lacks concrete detail."
+        "Integration risk acknowledged but mitigation is generic.",
+        "Lack of detailed integration plans could lead to unforeseen challenges."
       ],
-      "overall_summary": "Mock evaluation (no LLM API key configured). Scores derived from keyword evidence density; connect an LLM for nuanced judgment.",
+      "overall_summary": "Orbit Digital presents a strong proposal with solid technical capabilities and extensive experience in enterprise automation. However, some vague integration details and generic risk mitigation strategies could pose challenges during implementation.",
       "warnings": []
     },
     {
       "supplier_name": "BrightPath Tech",
-      "submission_date": "2026-09-08",
-      "experience_rating": 2.5,
-      "absolute_score": 62.0,
-      "ppi": 70.84,
+      "submission_date": "2026-09-30",
+      "experience_rating": 3.5,
+      "absolute_score": 66.0,
+      "ppi": 71.11,
       "final_rank": 4,
       "criterion_details": [
         {
@@ -297,44 +298,44 @@
           "benchmark": 9.0,
           "gap": -3.0,
           "relative_pct": 66.67,
-          "evidence": "Scalability: Vendor states support for up to 10,000 users; however no independent load-test report is included\nin this proposal.",
-          "justification": "Mock heuristic: 6 positive keyword hits for 'Technical Capability'. Score reflects evidence density in document."
+          "evidence": "low-code platform that can go live in 12 weeks",
+          "justification": "The proposal demonstrates a solid technical capability with a low-code platform and clear integration options, but lacks independent load-test reports and detailed architecture diagrams."
         },
         {
           "criterion_id": 2,
           "name": "Implementation Plan",
+          "score": 7.0,
+          "max_score": 10,
+          "weight": 20.0,
+          "benchmark": 10.0,
+          "gap": -3.0,
+          "relative_pct": 70.0,
+          "evidence": "Aggressive 12-week plan: Design (3 wks), Build (5 wks), UAT (2 wks), Go-live (2 wks)",
+          "justification": "The implementation plan is well-structured with clear timelines and milestones, but the risk plan is brief and lacks detailed mitigation strategies."
+        },
+        {
+          "criterion_id": 3,
+          "name": "Commercial Value",
+          "score": 9.0,
+          "max_score": 10,
+          "weight": 20.0,
+          "benchmark": 9.0,
+          "gap": 0.0,
+          "relative_pct": 100.0,
+          "evidence": "Total Year 1 cost of $295,000 \u2013 significantly below market average",
+          "justification": "The pricing is clear and competitive, with a total cost that is the lowest among bidders, making it a strong commercial value."
+        },
+        {
+          "criterion_id": 4,
+          "name": "Security & Compliance",
           "score": 5.0,
           "max_score": 10,
           "weight": 20.0,
           "benchmark": 9.0,
           "gap": -4.0,
           "relative_pct": 55.56,
-          "evidence": "Phase\nDuration\nMilestones\nDesign\nWks 1-3\nRequirements sign-off\nBuild\nWks 4-8\n6 core workflows configured\nUAT & Go-live\nWks 9-12\nProduction cutover\nTeam: 1 project manager, 2 low-code configurators, 1 QA (part-time).",
-          "justification": "Mock heuristic: 4 positive keyword hits for 'Implementation Plan'. Score reflects evidence density in document."
-        },
-        {
-          "criterion_id": 3,
-          "name": "Commercial Value",
-          "score": 7.0,
-          "max_score": 10,
-          "weight": 20.0,
-          "benchmark": 8.0,
-          "gap": -1.0,
-          "relative_pct": 87.5,
-          "evidence": "Executive Summary\nBrightPath Tech offers the fastest, most affordable path to workflow automation: a low-code platform that can\ngo live in 12 weeks at the lowest price in this evaluation.",
-          "justification": "Mock heuristic: 6 positive keyword hits for 'Commercial Value'. Score reflects evidence density in document."
-        },
-        {
-          "criterion_id": 4,
-          "name": "Security & Compliance",
-          "score": 7.0,
-          "max_score": 10,
-          "weight": 20.0,
-          "benchmark": 9.0,
-          "gap": -2.0,
-          "relative_pct": 77.78,
-          "evidence": "Compliance detail is limited in this proposal: no ISO 27001 certificate number provided, no pen-test summary,\nno DPA attached.",
-          "justification": "Mock heuristic: 14 positive keyword hits for 'Security & Compliance'. Score reflects evidence density in document."
+          "evidence": "BrightFlow is hosted in a SOC 2-aligned facility",
+          "justification": "While there are some security measures in place, the lack of detailed compliance documentation and certifications limits the score."
         },
         {
           "criterion_id": 5,
@@ -342,20 +343,19 @@
           "score": 6.0,
           "max_score": 10,
           "weight": 10.0,
-          "benchmark": 9.0,
-          "gap": -3.0,
-          "relative_pct": 66.67,
-          "evidence": "24/7 available as $35k/yr\nadd-on.",
-          "justification": "Mock heuristic: 5 positive keyword hits for 'Support & Experience'. Score reflects evidence density in document."
+          "benchmark": 10.0,
+          "gap": -4.0,
+          "relative_pct": 60.0,
+          "evidence": "8 small-to-mid deployments (largest 1,200 users)",
+          "justification": "The supplier has relevant experience and provides references, but the absence of significant project references and detailed team resumes affects the score."
         }
       ],
       "risks": [
-        "Integration dependencies noted; mitigation quality varies by supplier.",
-        "SAP integration approach lacks concrete detail."
+        "Lack of independent load-test reports for scalability assessment",
+        "Limited detail in risk mitigation strategies for implementation"
       ],
-      "overall_summary": "Mock evaluation (no LLM API key configured). Scores derived from keyword evidence density; connect an LLM for nuanced judgment.",
+      "overall_summary": "BrightPath Tech presents a competitive proposal with strong commercial value and a clear implementation plan. However, concerns regarding technical documentation and security compliance may pose risks to the overall project execution.",
       "warnings": []
     }
-  ],
-  "warnings": []
+  ]
 }

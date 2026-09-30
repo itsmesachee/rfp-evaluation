@@ -76,6 +76,8 @@ python test_run.py   # end-to-end mock run over the 4 sample PDFs + validation e
 
 ## Screenshots (deployed app)
 
+Captured from a live run scored by a real LLM via OpenRouter (`openai/gpt-4o-mini`) — see the "Active backend" indicator in the sidebar and the run summary.
+
 Evaluation criteria loaded live from SQLite (weights total 100%):
 
 ![Evaluation criteria](docs/screenshots/01-criteria.png)
