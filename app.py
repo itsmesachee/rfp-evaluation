@@ -14,6 +14,39 @@ DB_PATH = BASE_DIR / "rfp_evaluation.db"
 
 st.set_page_config(page_title="RFP Ranker — Agentic Supplier Evaluation", layout="wide")
 
+# ---------- Light theme accents (white background + color coding) ----------
+st.markdown("""
+<style>
+/* Primary buttons: solid accent */
+.stButton > button[kind="primary"] {
+    background-color: #4A90D9;
+    border-color: #4A90D9;
+    color: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 600;
+}
+/* Expander cards: soft blue tint */
+[data-testid="stExpander"] {
+    background-color: #F2F7FD;
+    border: 1px solid #D6E4F0;
+    border-radius: 10px;
+}
+/* Metric cards (top suppliers): soft blue tint */
+[data-testid="stMetric"] {
+    background-color: #F2F7FD;
+    border: 1px solid #D6E4F0;
+    border-radius: 10px;
+    padding: 12px;
+}
+/* Accent bar on section headers */
+h2 {
+    border-left: 6px solid #4A90D9;
+    padding-left: 12px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 # ---------- Sidebar: optional user-supplied LLM key (e.g. OpenRouter) ----------
 with st.sidebar:
     st.header("Configuration")
