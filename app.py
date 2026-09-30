@@ -35,7 +35,7 @@ if not DB_PATH.exists():
     from init_db import init_db
     init_db(DB_PATH)
 
-st.title("🏆 RFP Ranker")
+st.title("🏆📋 Agentic RFP Evaluation & Supplier Ranking")
 st.caption("Agentic supplier evaluation: an LLM reads each proposal and scores it against "
            "your criteria, then deterministic Python computes benchmarks, PPI, tie-breaks "
            "and the final ranking.")
