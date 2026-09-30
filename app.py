@@ -7,11 +7,27 @@ from pathlib import Path
 import streamlit as st
 
 from tools.orchestrator import load_active_criteria, run_evaluation
+from tools import llm_client
 
 BASE_DIR = Path(__file__).parent
 DB_PATH = BASE_DIR / "rfp_evaluation.db"
 
 st.set_page_config(page_title="Agentic RFP Evaluation", layout="wide")
+
+# ---------- Sidebar: optional user-supplied LLM key (e.g. OpenRouter) ----------
+with st.sidebar:
+    st.header("⚙️ Settings")
+    user_key = st.text_input(
+        "OpenRouter API Key", type="password",
+        help="Optional. Paste your own key to score with a real LLM. "
+             "Leave empty to use the built-in mock evaluator.")
+    user_model = st.text_input(
+        "Model", value="openai/gpt-4o-mini",
+        help="OpenRouter model id, e.g. openai/gpt-4o-mini")
+    if user_key.strip():
+        llm_client.configure(api_key=user_key, model=user_model,
+                             base_url=llm_client.OPENROUTER_BASE_URL)
+    st.caption(f"LLM backend: **{llm_client.backend_name()}**")
 
 # Ensure DB exists
 if not DB_PATH.exists():
@@ -34,8 +50,7 @@ for col, c in zip(cols, criteria):
 st.write(f"**Total active weight:** {total_w}%")
 if abs(total_w - 100.0) > 0.01:
     st.error("Active criteria weights must total 100%. Update evaluation_criteria in SQLite.")
-backend = "OpenAI" if __import__("os").environ.get("OPENAI_API_KEY") else "Mock (no OPENAI_API_KEY)"
-st.info(f"LLM backend: **{backend}** — set OPENAI_API_KEY env var to use a real JSON-capable LLM.")
+st.info(f"LLM backend: **{llm_client.backend_name()}** — paste a key in the sidebar, or set OPENAI_API_KEY, to use a real JSON-capable LLM.")
 
 # ---------- Screen: Supplier input ----------
 st.header("2. Supplier Input")
@@ -136,6 +151,7 @@ if result:
     export = {
         "rfp_run_id": result["rfp_run_id"],
         "created_at": result["created_at"],
+        "llm_backend": result["llm_backend"],
         "criteria": result["criteria"],
         "tie_break_order": ranking["tie_break_order"],
         "benchmarks": ranking["benchmarks"],

@@ -1,7 +1,9 @@
 """LLM client: JSON-capable evaluation agent with pluggable backend.
 
-Backends:
-- OpenAI (if OPENAI_API_KEY env var set, uses gpt-4o-mini by default)
+Backends (in precedence order):
+- Runtime key: user pastes an API key in the Streamlit sidebar (e.g. OpenRouter).
+  base_url points at OpenRouter's OpenAI-compatible endpoint.
+- Env/secret key: OPENAI_API_KEY (+ optional OPENAI_MODEL, OPENAI_BASE_URL).
 - Mock (deterministic heuristic fallback for classroom demo without API key)
 
 The Evaluation Agent must: use only evidence present in the document,
@@ -10,7 +12,42 @@ return one result per active criterion, stay within score range, output JSON onl
 import json
 import os
 import re
-from typing import List, Dict
+from typing import List, Dict, Optional
+
+# Runtime-configurable LLM settings (e.g. set from the Streamlit sidebar).
+# These take precedence over environment variables / Streamlit secrets.
+_RUNTIME_CONFIG = {"api_key": None, "model": None, "base_url": None}
+
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+
+
+def configure(api_key: Optional[str] = None, model: Optional[str] = None,
+              base_url: Optional[str] = None) -> None:
+    """Set LLM credentials at runtime (e.g. from Streamlit sidebar input)."""
+    if api_key is not None:
+        _RUNTIME_CONFIG["api_key"] = api_key.strip() or None
+    if model is not None:
+        _RUNTIME_CONFIG["model"] = model.strip() or None
+    if base_url is not None:
+        _RUNTIME_CONFIG["base_url"] = base_url.strip() or None
+
+
+def active_settings():
+    """Return (api_key, model, base_url) after applying precedence rules."""
+    api_key = _RUNTIME_CONFIG["api_key"] or os.environ.get("OPENAI_API_KEY")
+    model = _RUNTIME_CONFIG["model"] or os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+    base_url = _RUNTIME_CONFIG["base_url"] or os.environ.get("OPENAI_BASE_URL")
+    return api_key, model, base_url
+
+
+def backend_name() -> str:
+    """Human-readable label of the backend that would be used."""
+    api_key, model, base_url = active_settings()
+    if not api_key:
+        return "mock (no API key)"
+    if base_url and "openrouter" in base_url:
+        return f"OpenRouter ({model})"
+    return f"OpenAI ({model})"
 
 PROMPT_TEMPLATE = """You are an RFP evaluation agent. Score ONE supplier proposal against the active criteria.
 
@@ -47,9 +84,13 @@ def build_prompt(supplier_name: str, criteria: List[Dict], document_text: str, m
         document=document_text,
     )
 
-def _call_openai(prompt: str, model: str = "gpt-4o-mini") -> str:
+def _call_openai(prompt: str, model: str = "gpt-4o-mini",
+                 api_key: Optional[str] = None, base_url: Optional[str] = None) -> str:
     from openai import OpenAI
-    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+    kwargs = {"api_key": api_key}
+    if base_url:
+        kwargs["base_url"] = base_url  # e.g. OpenRouter's OpenAI-compatible endpoint
+    client = OpenAI(**kwargs)
     resp = client.chat.completions.create(
         model=model,
         messages=[
@@ -131,8 +172,9 @@ def evaluate_supplier(supplier_name: str, criteria: List[Dict], document_text: s
     short_doc = truncate_for_prompt(document_text)
     max_score = criteria[0].get("max_score", 10) if criteria else 10
     prompt = build_prompt(supplier_name, criteria, short_doc, max_score)
-    if os.environ.get("OPENAI_API_KEY"):
-        raw = _call_openai(prompt, os.environ.get("OPENAI_MODEL", "gpt-4o-mini"))
+    api_key, model, base_url = active_settings()
+    if api_key:
+        raw = _call_openai(prompt, model, api_key, base_url)
     else:
         mocked = _mock_score(document_text, criteria)
         mocked["supplier_name"] = supplier_name

@@ -38,8 +38,11 @@ python init_db.py            # creates rfp_evaluation.db + seeds criteria
 streamlit run app.py
 ```
 
-Optional: set `OPENAI_API_KEY` (and `OPENAI_MODEL`, default `gpt-4o-mini`) to use a
-real JSON-capable LLM. Without it, a deterministic keyword-heuristic **mock**
+Optional: use a real LLM in either of two ways —
+- paste your own key in the app's sidebar (**Settings → OpenRouter API Key**, model defaults to `openai/gpt-4o-mini`), or
+- set `OPENAI_API_KEY` (and optionally `OPENAI_MODEL`, `OPENAI_BASE_URL`) as an env var / Streamlit secret.
+
+The sidebar key takes precedence. Without any key, a deterministic keyword-heuristic **mock**
 backend runs so the app is fully demoable offline.
 
 ## Synthetic data

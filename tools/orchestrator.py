@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import List, Dict
 
 from .document_tool import extract_text_from_pdf
+from . import llm_client
 from .llm_client import evaluate_supplier
 from .validation_tool import validate_llm_result
 from .ranking_tool import compute_scores_and_ranking
@@ -109,5 +110,5 @@ def run_evaluation(db_path: Path, supplier_inputs: List[Dict]) -> Dict:
         "criteria": criteria,
         "ranking": ranking,
         "warnings": all_warnings,
-        "llm_backend": "openai" if __import__("os").environ.get("OPENAI_API_KEY") else "mock",
+        "llm_backend": llm_client.backend_name(),
     }

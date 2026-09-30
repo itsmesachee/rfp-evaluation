@@ -75,6 +75,7 @@ assert order == ["Alpha", "Beta"], "tie-break failed"
 export = {
     "rfp_run_id": result["rfp_run_id"],
     "created_at": result["created_at"],
+    "llm_backend": result["llm_backend"],
     "criteria": result["criteria"],
     "tie_break_order": result["ranking"]["tie_break_order"],
     "benchmarks": result["ranking"]["benchmarks"],
